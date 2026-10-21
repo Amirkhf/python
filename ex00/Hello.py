@@ -6,7 +6,6 @@ ft_dict = {"Hello" : "titi!"}
 # remplace la valeur de l'indice 1 par world
 ft_list[1] = 'World!'
 
-
 # ça nous permet de repartir de zéro et de mettre de nouvelles valeurs
 ft_tuple = ("Hello","France!")
 
