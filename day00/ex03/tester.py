@@ -1,4 +1,4 @@
-from day00.ex03.NULL_not_found import NULL_not_found
+from NULL_not_found import NULL_not_found
 Nothing = None
 Garlic = float("NaN")
 Zero = 0

@@ -14,7 +14,8 @@ def main():
 
     if argc == 1:
         try:
-            phrase = input("What is the text to count?\n")
+            print("What is the text to count?")
+            phrase = sys.stdin.readline()
         except (KeyboardInterrupt, EOFError):
             print("une erreur est survenue")
         if phrase == "" or phrase == '\n':
@@ -38,7 +39,7 @@ def main():
             punctuation += 1
 
     result = (
-        f"The text contains {len(phrase) + 1} characters:\n"
+        f"The text contains {len(phrase)} characters:\n"
         f"{upper} upper letters\n"
         f"{lower} lower letters\n"
         f"{punctuation} punctuation marks\n"

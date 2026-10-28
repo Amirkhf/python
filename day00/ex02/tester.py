@@ -1,4 +1,4 @@
-from day00.ex02.find_ft_type import all_thing_is_obj
+from find_ft_type import all_thing_is_obj
 ft_list = ["Hello", "tata!"]
 ft_tuple = ("Hello", "toto!")
 ft_set = {"Hello", "tutu!"}
