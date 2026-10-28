@@ -1,16 +1,16 @@
 import os
 
 
-def ft_tqdm(lst: range) -> None:
+def ft_tqdm(lst: range):
     """generateur qui affiche une barre de progression comme tqdm"""
-    total = len(lst)
-    width = os.get_terminal_size().columns
+    try:
+        width = os.get_terminal_size().columns
+    except OSError:
+        width = 80
     for i, elem in enumerate(lst, 1):
         yield elem
-        percent = i * 100 // total
-        prefix = f"{percent:3d}%|["
-        suffix = f"]| {i}/{total}"
-        bar_len = width - len(prefix) - len(suffix) - 2
-        filled = bar_len * i // total
-        bar = ("=" * filled + ">").ljust(bar_len + 1)
-        print(f"\r{prefix}{bar}{suffix}", end="", flush=True)
+        info = f"| {i}/{len(lst)}"
+        n = width - len(info) - 8
+        bar = "=" * (n * i // len(lst)) + ">"
+        print(f"\r{i * 100 // len(lst):3d}%|[{bar:<{n + 1}}]{info}",
+              end="", flush=True)
