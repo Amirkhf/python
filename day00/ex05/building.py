@@ -3,12 +3,20 @@ import string
 
 
 def main():
+    """Compte les caracteres d'un texte passe en argument
+    Si aucun argument n'est fourni le texte est demande a l'utilisateur
+    Affiche le nombre total de caracteres, de majuscules, de minuscules
+    de signes de ponctuation, d'espaces et de chiffres
+    """
     lower = upper = spaces = digits = punctuation = 0
     argc = len(sys.argv)
     phrase = ""
 
     if argc == 1:
-        phrase = input("Entrez une phrase à analyser : ")
+        try:
+            phrase = input("What is the text to count?\n")
+        except (KeyboardInterrupt, EOFError):
+            print("une erreur est survenue")
         if phrase == "" or phrase == '\n':
             return
     elif argc > 2:
@@ -30,9 +38,7 @@ def main():
             punctuation += 1
 
     result = (
-        f"What is the text to count?\n"
-        f"{phrase}\n"
-        f"The text contains {len(phrase)} characters:\n"
+        f"The text contains {len(phrase) + 1} characters:\n"
         f"{upper} upper letters\n"
         f"{lower} lower letters\n"
         f"{punctuation} punctuation marks\n"
